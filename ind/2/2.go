@@ -1,6 +1,4 @@
-/* Треугольник задан координатами своих вершин. Найти периметр и площадь
-треугольника.
-*/
+/* Треугольник задан координатами своих вершин. Найти периметр и площадь треугольника. */
 
 package main
 
@@ -15,9 +13,9 @@ func main() {
 	fmt.Scan(&x1, &y1, &x2, &y2, &x3, &y3)
 
 	// Вычисляем длины сторон треугольника
-	a := distance(x1, y1, x2, y2)
-	b := distance(x2, y2, x3, y3)
-	c := distance(x3, y3, x1, y1)
+	a := math.Sqrt(math.Pow(x2-x1, 2) + math.Pow(y2-y1, 2))
+	b := math.Sqrt(math.Pow(x3-x2, 2) + math.Pow(y3-y2, 2))
+	c := math.Sqrt(math.Pow(x1-x3, 2) + math.Pow(y1-y3, 2))
 
 	// Вычисляем периметр
 	perimeter := a + b + c
@@ -31,9 +29,4 @@ func main() {
 	// Выводим результаты
 	fmt.Printf("Периметр треугольника: %.2f\n", perimeter)
 	fmt.Printf("Площадь треугольника: %.2f\n", area)
-}
-
-// Функция для вычисления расстояния между двумя точками
-func distance(x1, y1, x2, y2 float64) float64 {
-	return math.Sqrt(math.Pow(x2-x1, 2) + math.Pow(y2-y1, 2))
 }
